@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+
+    android:padding="10dp">
+
+    <Button
+
+        android:layout_gravity="center"
+        style="@style/btn_text_style"
+        android:text="123"
+        android:layout_width="130dp"
+        android:layout_height="100dp"
+        android:background="@drawable/alcohol"
+        android:id="@+id/catagory_desine_imageBtn"
+        />
+
+    <TextView
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="cat"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:id="@+id/catagory_desine_name"
+        android:layout_below="@+id/catagory_desine_imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="13dp"/>
+
+</LinearLayout>

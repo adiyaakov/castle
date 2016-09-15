@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_height="match_parent"
+    android:background="@drawable/good_with_beer_bg"
+    android:padding="5dp"
+
+    tools:context=".Activites.GoodWithBeer">
+
+
+
+    <LinearLayout
+        android:layoutDirection="ltr"
+        android:padding="15dp"
+        android:id="@+id/AA_sideMenulayout"
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/delete"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_marginTop="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="הולך טוב עם הבירה"
+            android:textSize="45dp"
+            android:layout_marginBottom="30dp"/>
+
+
+
+        <Button
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:text="אדממה"
+            android:textSize="32dp"
+            android:id="@+id/GWB_adamama"
+            android:onClick="onBtnClicked"
+            android:tag="0"/>
+
+        <Button
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:text="נאצוס"
+            android:textSize="32dp"
+            android:id="@+id/GWB_natos"
+            android:onClick="onBtnClicked"
+            android:tag="1"/>
+
+        <Button
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:text="חמוצי הבית"
+            android:textSize="32dp"
+            android:id="@+id/GWB_hamuziHabit"
+            android:onClick="onBtnClicked"
+            android:tag="2"/>
+
+        <Button
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:text="מסבחה"
+            android:textSize="32dp"
+            android:id="@+id/GWB_mesahbaha"
+            android:onClick="onBtnClicked"
+            android:tag="3"/>
+
+        <Button
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:text="כבד קצוץ"
+            android:textSize="32dp"
+            android:id="@+id/GWB_polani"
+            android:onClick="onBtnClicked"
+            android:tag="4"/>
+
+
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/manager"
+            android:layout_marginBottom="20dp"
+            android:layout_gravity="center"
+            />
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_weight="2"
+        android:layout_height="match_parent"
+        android:background="@drawable/delete"
+        android:paddingTop="60dp"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp"
+
+        android:id="@+id/GWB_displayImage">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8"
+            android:layout_marginBottom="30dp"
+            android:id="@+id/GVB_imageView"/>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layoutDirection="ltr"
+            android:layout_weight="2">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="פולי סויה קלויים "
+                android:id="@+id/GWB_itemdiscriptin"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/GWB_itemtitle"
+                android:layout_toStartOf="@+id/GWB_itemtitle" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="אדממה"
+                android:textSize="60dp"
+                android:id="@+id/GWB_itemtitle"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="32"
+                android:textSize="30dp"
+                android:id="@+id/GWB_price"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>
+

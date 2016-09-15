@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "917025085431",
+    "firebase_url": "https://otto-resturant.firebaseio.com",
+    "project_id": "otto-resturant",
+    "storage_bucket": "otto-resturant.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:917025085431:android:95101d55acfba878",
+        "android_client_info": {
+          "package_name": "com.example.adi.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "917025085431-doi91dgc901m3bvghqfc4fim6cv1pvgs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChzTMxGirbgllgTIR0-cefcggpV4mW96g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

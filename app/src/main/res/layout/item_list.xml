@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+   >
+
+    <ImageView
+        android:layout_width="208dp"
+        android:layout_marginLeft="10dp"
+        android:layout_height="130dp"
+        android:id="@+id/item_list_samegreg_iv"
+        android:src="@mipmap/logo"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:padding="1dp"
+        android:layout_marginRight="1dp"
+        android:scaleType="centerCrop"
+        android:cropToPadding="true"
+        />
+
+    <TextView
+
+        android:textColor="#fafafa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="name_of_item"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:id="@+id/item_list_samegreg_name_of_item"
+        android:layout_toLeftOf="@id/item_list_samegreg_iv" />
+
+    <TextView
+        android:textColor="#fafafa"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="iscription_of_item"
+        android:id="@+id/item_list_samegreg_discription_of_item"
+        android:textSize="20dp"
+        android:layout_toLeftOf="@id/item_list_samegreg_iv"
+
+
+        android:layout_below="@id/item_list_samegreg_name_of_item" />
+
+
+    <TextView
+        android:textColor="#fafafa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="32"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/item_list_samegreg_price_of_item"/>
+
+
+
+
+
+</RelativeLayout>
