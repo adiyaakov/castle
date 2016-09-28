@@ -6,17 +6,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.adi.myapplication.Activites.Alcohol_Activity;
-import com.example.adi.myapplication.Activites.GoodWithBeer;
+import com.example.adi.myapplication.Activites.CardView_activity;
 import com.example.adi.myapplication.Activites.MainActivity;
+import com.example.adi.myapplication.Activites.NavigationDrawer_Activity;
 import com.example.adi.myapplication.Fragment_all_kind.FireBase_Fragment;
-import com.example.adi.myapplication.Fragment_all_kind.Main_Fragment;
 import com.example.adi.myapplication.Item_strqture.MenuItem;
 import com.example.adi.myapplication.R;
 
@@ -42,18 +39,12 @@ public class Custom_Base_Adapter extends BaseAdapter {
 
 
     }
-    public Custom_Base_Adapter(Context context, MenuItem[] items, int layout, int btn, int textView){
-        this.context = context;
-        this.items = items;
-        this.layout = layout;
-        this.btn = btn;
-        this.textView = textView;
-        constructorCalled = 2;
-    }
+
 
     private static class ViewHolder {
         Button btn;
         TextView textView;
+        TextView title;
 
     }
 
@@ -81,6 +72,7 @@ public class Custom_Base_Adapter extends BaseAdapter {
             convertView = LayoutInflater.from(context).inflate(layout, null, false);
             viewHolder.btn = (Button)convertView.findViewById(btn);
             viewHolder.textView = (TextView)convertView.findViewById(textView);
+            viewHolder.title = (TextView)convertView.findViewById(R.id.grid_item_title);
             convertView.setTag(viewHolder);
 
 
@@ -89,11 +81,15 @@ public class Custom_Base_Adapter extends BaseAdapter {
         }
 
 
-        //viewHolder.btn.setTextAppearance(R.style.btn_style);
+
         viewHolder.btn.setBackgroundResource(items[position].getImg_R());
         viewHolder.btn.setTag(position);
-        viewHolder.btn.setText(items[position].getItem_name());
-        viewHolder.btn.setTextSize(40);
+        //viewHolder.btn.setText(items[position].getItem_name());
+        //viewHolder.btn.setTextSize(40);
+
+        viewHolder.title.setText(items[position].getItem_name());
+
+
 
         viewHolder.btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,56 +113,49 @@ public class Custom_Base_Adapter extends BaseAdapter {
     private void onMainActivityBtnClick(int position){
         switch (position){
             case 0:
-                //openNewFragmentCatagory("10", "תפריט פיצות");
-                firebaseFragment("pizza","תפריט פיצות");
 
-
+                openCardActivity(R.string.path_pizza,R.string.menu_pizza);
 
                 break;
             case 1:
-                //openNewFragmentCatagory("20", "תפריט סלטים");
-                firebaseFragment("salad","תפריט סלטים");
+
+                openCardActivity(R.string.path_salad,R.string.menu_salad);
 
 
                 break;
             case 2:
-                //openNewFragmentCatagory("30","תפריט כריכים");
-                firebaseFragment("sandwitch","תפריט כריכים");
+
+                openCardActivity(R.string.path_sandwitch,R.string.menu_sandwitch);
 
 
                 break;
             case 3:
-                /*Intent i3 = new Intent(context, GoodWithBeer.class);
-                context.startActivity(i3);*/
-                firebaseFragment("goodwithbeer","הכי טוב עם הבירה");
 
-
+                openCardActivity(R.string.path_nextTObeer,R.string.menu_nextTObeer);
 
                 break;
             case 4:
-                //openNewFragmentCatagory("50", "משקאות קלים");
-
-                firebaseFragment("softdrink","משקאות קלים");
+                openCardActivity(R.string.path_softDrink,R.string.menu_softDrink);
 
 
                 break;
             case 5:
 
-                //openNewFragmentCatagory("60", "תפריט קינוחים");
-                firebaseFragment("cakes","תפריט קינוחים");
+                openCardActivity(R.string.path_cakes,R.string.menu_cakes);
 
                 break;
             case 6:
-                /*Intent i6 = new Intent(context, Alcohol_Activity.class);
-                context.startActivity(i6);*/
-                firebaseFragment("alcohol","תפריט אלכוהול");
+
+                openCardActivity(R.string.path_alcohol,R.string.menu_alchol);
+
                 break;
             case 7:
-                //openNewFragmentCatagory("80", "תפריט קוקטיילים");
-                firebaseFragment("cocktails","תפריט קוקטיילים");
+
+                openCardActivity(R.string.path_cooktails,R.string.menu_cocktails);
                 break;
             case 8:
-                firebaseFragment("sales","תפריט מבצעים");
+                //firebaseFragment("sales","תפריט מבצעים");
+
 
 
                 break;
@@ -176,30 +165,18 @@ public class Custom_Base_Adapter extends BaseAdapter {
 
 
     }
-    public void openNewFragmentCatagory(String catagory_number_in_db, String title){
 
 
-        Main_Fragment fragment = new Main_Fragment();
+    private void openCardActivity(int fire_base_path, int headerTitle){
 
-        Bundle bundle = new Bundle();
-        bundle.putString("TITLE", title);
-        bundle.putString("CATAGORY", catagory_number_in_db);
-        bundle.putInt("OUT",1);
-        fragment.setArguments(bundle);
-        ((MainActivity)context).getFragmentManager().beginTransaction()
-                .replace(R.id.activity_main_list_container, fragment)
-                .commit();
-    }
-    public void firebaseFragment(String path, String title){
-        Bundle b = new Bundle();
-        b.putString("Path",path );
-        b.putString("TITLE", title);
-        FireBase_Fragment fragment = new FireBase_Fragment();
-        fragment.setArguments(b);
-        ((MainActivity)context).getFragmentManager().beginTransaction()
-                .replace(R.id.activity_main_list_container, fragment)
-                .commit();
+        ((MainActivity)context).countDownTimer.cancel();
+        ((MainActivity)context).counter = 30;
+        ((MainActivity)context).startTimerScreenSaverMethod();
 
+        Intent i = new Intent(context, NavigationDrawer_Activity.class);
+        i.putExtra("PATH", fire_base_path);
+        i.putExtra("HEADER", headerTitle);
+        ((MainActivity)(context)).startActivity(i);
     }
 
     }

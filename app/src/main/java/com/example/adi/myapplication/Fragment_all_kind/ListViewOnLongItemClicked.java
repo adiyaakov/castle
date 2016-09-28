@@ -3,6 +3,7 @@ package com.example.adi.myapplication.Fragment_all_kind;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.DialogFragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -15,15 +16,18 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.adi.myapplication.Activites.CardView_activity;
 import com.example.adi.myapplication.Activites.MainActivity;
+import com.example.adi.myapplication.Activites.NavigationDrawer_Activity;
 import com.example.adi.myapplication.Object;
 import com.example.adi.myapplication.R;
 
 /**
  * Created by Adi on 14/09/2016.
  */
-public class ListViewOnLongItemClicked extends Dialog_Fragment {
+public class ListViewOnLongItemClicked extends DialogFragment {
     private Context context;
+    private Activity activity;
     private int position = 0;
     private EditText nameET, priceET, discriptionET, imgUrl;
     private FireBase_Fragment fragment;
@@ -43,13 +47,15 @@ public class ListViewOnLongItemClicked extends Dialog_Fragment {
         imgUrl = (EditText) view.findViewById(R.id.dialog_fragment_catagory);
         builder.setView(view);
 
-        final Object obj = fragment.getItemfromFireBaseAdapter(position);
+        position = getArguments().getInt("position");
+
+        final Object obj = NavigationDrawer_Activity.getItemfromFireBaseAdapter(position);
         nameET.setText(obj.getItem_name());
         priceET.setText(obj.getItem_price());
         imgUrl.setText(obj.getImgURL());
         discriptionET.setText(obj.getItem_description());
 
-        position = getArguments().getInt("position");
+
         builder.setPositiveButton("שמור שינויים", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -58,7 +64,7 @@ public class ListViewOnLongItemClicked extends Dialog_Fragment {
                         nameET.getText().toString().trim(),
                         imgUrl.getText().toString().trim(),
                         priceET.getText().toString().trim());
-                fragment.updateFireBaseObj(position, newObj);
+                NavigationDrawer_Activity.updateFireBaseObj(position, newObj);
             }
         });
         builder.setNeutralButton("אל תבצע כל שינוי", new DialogInterface.OnClickListener() {
@@ -71,7 +77,7 @@ public class ListViewOnLongItemClicked extends Dialog_Fragment {
         builder.setNegativeButton("מחק מוצר", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                fragment.removeItemFromFireBase(position);
+                NavigationDrawer_Activity.removeItemFromFireBase(position);
 
 
             }
@@ -93,16 +99,17 @@ public class ListViewOnLongItemClicked extends Dialog_Fragment {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         this.context = activity;
+        this.activity = activity;
 
     }
 
     public void onResume() {
         super.onResume();
 
-        super.onResume();
-        /*Window window = getDialog().getWindow();
-        window.setLayout(600, 400);
-        window.setGravity(Gravity.TOP);*/
+        getDialog().setCanceledOnTouchOutside(false);
+        Window window = getDialog().getWindow();
+        window.setLayout(600, 450);
+        window.setGravity(Gravity.TOP);
     }
 }
 

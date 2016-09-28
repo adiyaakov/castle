@@ -1,3 +1,29 @@
 <resources>
     <string name="app_name">MY TABLET </string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_navigation_drawer_"></string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="menu_alchol">תפריט אלכוהול</string>
+    <string name="menu_pizza">תפריט פיצות</string>
+    <string name="menu_salad">תפריט סלטים</string>
+    <string name="menu_sandwitch">תפריט כריכים</string>
+    <string name="menu_nextTObeer">הולך טוב עם הבירה</string>
+    <string name="menu_softDrink">תפריט משקאות קלים</string>
+    <string name="menu_cakes">תפריט קינוחים</string>
+    <string name="menu_cocktails">תפריט קוקטיילים</string>
+
+    <string name="path_alcohol">alchol</string>
+    <string name="path_pizza">pizza</string>
+    <string name="path_salad">salad</string>
+    <string name="path_sandwitch">sandwitch</string>
+    <string name="path_nextTObeer">goodWithBeer</string>
+    <string name="path_softDrink">softDrink</string>
+    <string name="path_cakes">cakes</string>
+    <string name="path_cooktails">cooctails</string>
+
+
 </resources>

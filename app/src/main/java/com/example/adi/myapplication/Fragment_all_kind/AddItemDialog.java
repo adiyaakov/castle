@@ -3,6 +3,7 @@ package com.example.adi.myapplication.Fragment_all_kind;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.DialogFragment;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -16,6 +17,8 @@ import android.view.Window;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.adi.myapplication.Activites.CardView_activity;
+import com.example.adi.myapplication.Activites.NavigationDrawer_Activity;
 import com.example.adi.myapplication.Object;
 import com.example.adi.myapplication.R;
 
@@ -23,10 +26,10 @@ import com.example.adi.myapplication.R;
 /**
  * Created by Adi on 14/09/2016.
  */
-public class AddItemDialog extends Dialog_Fragment {
+public class AddItemDialog extends DialogFragment{
 
     private Context context;
-
+    private Activity activity;
     private FireBase_Fragment fragment;
     private EditText nameET, priceET, discriptionET, imgUrl;
     private boolean ifEmpty;
@@ -38,13 +41,10 @@ public class AddItemDialog extends Dialog_Fragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder  = new AlertDialog.Builder(context);
 
-        builder.setTitle("Manager Area");
-        View view = LayoutInflater.from(context).inflate(R.layout.dialog_fragment_add_item, null);
 
-        /*Bundle mArgs = getArguments();
-        final String myValue = mArgs.getString("KEY","-1");
-        final String catagoryTag = mArgs.getString("CATAGORY_NUMBER","-2");
-        Toast.makeText(context, catagoryTag+"", Toast.LENGTH_SHORT).show();*/
+        builder.setTitle("Manager Area");
+
+        View view = LayoutInflater.from(context).inflate(R.layout.dialog_fragment_add_item, null);
 
         nameET = (EditText)view.findViewById(R.id.dialog_fragment_name);
         priceET = (EditText)view.findViewById(R.id.dialog_fragment_price);
@@ -73,7 +73,9 @@ public class AddItemDialog extends Dialog_Fragment {
                 checkIfNull(n);
                 if (ifEmpty){
                     Object object = new Object(d,n,url,p);
-                    fragment.addNewFireBaseItem(object);
+                    //fragment.addNewFireBaseItem(object);
+                    ((NavigationDrawer_Activity)(activity)).addNewFireBaseItem(object);
+
                 }
 
 
@@ -108,6 +110,7 @@ public class AddItemDialog extends Dialog_Fragment {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         this.context = activity;
+        this.activity = activity;
     }
 
     public void onResume() {
@@ -117,6 +120,8 @@ public class AddItemDialog extends Dialog_Fragment {
         Window window = getDialog().getWindow();
         window.setLayout(600, 400);
         window.setGravity(Gravity.TOP);
+
+        getDialog().setCanceledOnTouchOutside(false);
     }
 
 }

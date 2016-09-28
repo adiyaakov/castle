@@ -3,6 +3,7 @@
     package="com.example.adi.myapplication">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.BIND_SCREENING_SERVICE" />
 
     <application
         android:allowBackup="true"
@@ -21,10 +22,21 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".Activites.CardView_activity" />
         <activity
-            android:name=".Activites.Alcohol_Activity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".Activites.GoodWithBeer" />
+            android:name=".Activites.NavigationDrawer_Activity"
+            android:label="@string/title_activity_navigation_drawer_"
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+
+        <receiver android:name=".ScreenReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.SCREEN_OFF" />
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".Activites.ScreenSaverActivity"></activity>
     </application>
 
 </manifest>

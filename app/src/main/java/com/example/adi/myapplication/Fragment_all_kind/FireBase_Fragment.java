@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.adi.myapplication.CircleTransform;
 import com.example.adi.myapplication.Object;
 import com.example.adi.myapplication.R;
 import com.firebase.client.Firebase;
@@ -54,6 +55,23 @@ public class FireBase_Fragment extends Fragment {
         Animation a = AnimationUtils.loadAnimation(getActivity(), R.anim.movment);
         title.setAnimation(a);
 
+        a.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                startAdapter();
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
 
         ref = new Firebase("https://otto-resturant.firebaseio.com/"+path);
 
@@ -72,7 +90,7 @@ public class FireBase_Fragment extends Fragment {
 
 
         listView = (ListView) v.findViewById(R.id.main_fragment_listview);
-        startAdapter();
+
         return v;
     }
 
@@ -95,7 +113,9 @@ public class FireBase_Fragment extends Fragment {
                 ImageView iv = (ImageView) view.findViewById(R.id.item_list_samegreg_iv);
                 String url = chat.getImgURL();
 
-                Picasso.with(context).load(url).into(iv);
+                Picasso.with(context).load(url).transform(new CircleTransform()).error(R.drawable.cake).into(iv);
+
+
             }
         };
         listView.setAdapter(adapter);
