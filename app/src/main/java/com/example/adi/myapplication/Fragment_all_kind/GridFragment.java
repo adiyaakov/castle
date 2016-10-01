@@ -29,7 +29,8 @@ public class GridFragment extends Fragment {
             new MenuItem("קינוחים",R.drawable.cake,null),
             new MenuItem("אלכוהול",R.drawable.alcohol,null),
             new MenuItem("קוקטיילים",R.drawable.cocktalil,null),
-            new MenuItem(null,R.drawable.mithim,null),
+            new MenuItem("המבצעים שלנו",R.drawable.saless,null),
+
 
 
 

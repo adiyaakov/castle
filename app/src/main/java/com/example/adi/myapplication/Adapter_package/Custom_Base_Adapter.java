@@ -111,6 +111,7 @@ public class Custom_Base_Adapter extends BaseAdapter {
         return convertView;
     }
     private void onMainActivityBtnClick(int position){
+        //MainActivity.onTouchEventOnActivity(context);
         switch (position){
             case 0:
 
@@ -169,9 +170,11 @@ public class Custom_Base_Adapter extends BaseAdapter {
 
     private void openCardActivity(int fire_base_path, int headerTitle){
 
+/*
         ((MainActivity)context).countDownTimer.cancel();
         ((MainActivity)context).counter = 30;
         ((MainActivity)context).startTimerScreenSaverMethod();
+        */
 
         Intent i = new Intent(context, NavigationDrawer_Activity.class);
         i.putExtra("PATH", fire_base_path);
